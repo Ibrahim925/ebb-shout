@@ -1,4 +1,5 @@
 import AppKit
+import SwiftUI
 
 @MainActor
 final class MenuBarController {
@@ -39,7 +40,21 @@ final class MenuBarController {
     }
 
     @objc private func statusItemClicked() {}
-    @objc private func openMetrics() { /* open MetricsView window */ }
+    @objc private func openMetrics() {
+        let view = MetricsView(metricsManager: appState.metricsManager,
+                               profileManager: appState.profileManager)
+        let window = NSWindow(
+            contentRect: NSRect(x: 0, y: 0, width: 540, height: 600),
+            styleMask: [.titled, .closable, .miniaturizable],
+            backing: .buffered,
+            defer: false
+        )
+        window.title = "Ebb Shout — Metrics"
+        window.contentView = NSHostingView(rootView: view)
+        window.center()
+        window.makeKeyAndOrderFront(nil)
+        metricsWindowController = NSWindowController(window: window)
+    }
     @objc private func openSettings() { NSApp.sendAction(Selector(("showSettingsWindow:")), to: nil, from: nil) }
     @objc private func quit() { NSApplication.shared.terminate(nil) }
 }
