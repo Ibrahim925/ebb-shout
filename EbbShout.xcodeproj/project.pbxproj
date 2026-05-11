@@ -7,14 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		090B8993564601970FB8F56C /* UserProfileManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771B96F2707CCF82CE82010C /* UserProfileManagerTests.swift */; };
 		0BB70EBEC45B5E0950D8FA89 /* EbbShoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BA91BDC109C95828FA3EE3 /* EbbShoutTests.swift */; };
 		375612FC2A921BB922A35E15 /* PipelineStage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1692FE10312A67D3274DD33 /* PipelineStage.swift */; };
 		43921044F94B83263BC19598 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5627165A735889F5BA6A4250 /* UserProfile.swift */; };
+		70E67408A991496C694E4570 /* UserProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03A6B51B9A1B6A4BB7DADF5 /* UserProfileManager.swift */; };
 		75212075696388560E31DCEA /* OllamaClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75A7CF4F86F1E45315964FF /* OllamaClient.swift */; };
 		822E4ED327A843977910128D /* EbbShoutApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB979648DB5093E99C6A7CD /* EbbShoutApp.swift */; };
 		87840381A85E508730E3E5B8 /* OllamaClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F91B93084799AF99DBA598 /* OllamaClientTests.swift */; };
 		8965B3C0D5CDAA787BF8EEB4 /* Metrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0081AB063BD95A02ACB983B3 /* Metrics.swift */; };
 		A05C25E4D4DAB285BE288CD0 /* RecordingMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD52D2280720885371F2D657 /* RecordingMode.swift */; };
+		BC2C1133B55530CFFEA3D659 /* MetricsManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01629050F4272961C13E11D /* MetricsManagerTests.swift */; };
+		E9A159F8F7C757DC6F835992 /* MetricsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7289A4124E5922A859357E /* MetricsManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,13 +33,17 @@
 
 /* Begin PBXFileReference section */
 		0081AB063BD95A02ACB983B3 /* Metrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metrics.swift; sourceTree = "<group>"; };
+		0E7289A4124E5922A859357E /* MetricsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsManager.swift; sourceTree = "<group>"; };
 		14BA91BDC109C95828FA3EE3 /* EbbShoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EbbShoutTests.swift; sourceTree = "<group>"; };
 		35E67255B493F5E5F6FDB1A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		42FE3B9AB2D0BE4849EBB0FE /* EbbShout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EbbShout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46F91B93084799AF99DBA598 /* OllamaClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OllamaClientTests.swift; sourceTree = "<group>"; };
 		55B00675E356E4126F806C39 /* EbbShout.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EbbShout.entitlements; sourceTree = "<group>"; };
 		5627165A735889F5BA6A4250 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		771B96F2707CCF82CE82010C /* UserProfileManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileManagerTests.swift; sourceTree = "<group>"; };
 		7AB979648DB5093E99C6A7CD /* EbbShoutApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EbbShoutApp.swift; sourceTree = "<group>"; };
+		A03A6B51B9A1B6A4BB7DADF5 /* UserProfileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileManager.swift; sourceTree = "<group>"; };
+		B01629050F4272961C13E11D /* MetricsManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsManagerTests.swift; sourceTree = "<group>"; };
 		BFB61B2A2F322910FA810150 /* EbbShoutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EbbShoutTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D75A7CF4F86F1E45315964FF /* OllamaClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OllamaClient.swift; sourceTree = "<group>"; };
 		DD52D2280720885371F2D657 /* RecordingMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingMode.swift; sourceTree = "<group>"; };
@@ -95,7 +103,9 @@
 		D99DB4920A9C63285DF07343 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				0E7289A4124E5922A859357E /* MetricsManager.swift */,
 				D75A7CF4F86F1E45315964FF /* OllamaClient.swift */,
+				A03A6B51B9A1B6A4BB7DADF5 /* UserProfileManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -104,7 +114,9 @@
 			isa = PBXGroup;
 			children = (
 				14BA91BDC109C95828FA3EE3 /* EbbShoutTests.swift */,
+				B01629050F4272961C13E11D /* MetricsManagerTests.swift */,
 				46F91B93084799AF99DBA598 /* OllamaClientTests.swift */,
+				771B96F2707CCF82CE82010C /* UserProfileManagerTests.swift */,
 			);
 			path = EbbShoutTests;
 			sourceTree = "<group>";
@@ -190,7 +202,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BB70EBEC45B5E0950D8FA89 /* EbbShoutTests.swift in Sources */,
+				BC2C1133B55530CFFEA3D659 /* MetricsManagerTests.swift in Sources */,
 				87840381A85E508730E3E5B8 /* OllamaClientTests.swift in Sources */,
+				090B8993564601970FB8F56C /* UserProfileManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,10 +214,12 @@
 			files = (
 				822E4ED327A843977910128D /* EbbShoutApp.swift in Sources */,
 				8965B3C0D5CDAA787BF8EEB4 /* Metrics.swift in Sources */,
+				E9A159F8F7C757DC6F835992 /* MetricsManager.swift in Sources */,
 				75212075696388560E31DCEA /* OllamaClient.swift in Sources */,
 				375612FC2A921BB922A35E15 /* PipelineStage.swift in Sources */,
 				A05C25E4D4DAB285BE288CD0 /* RecordingMode.swift in Sources */,
 				43921044F94B83263BC19598 /* UserProfile.swift in Sources */,
+				70E67408A991496C694E4570 /* UserProfileManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
