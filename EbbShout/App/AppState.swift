@@ -55,15 +55,17 @@ final class AppState {
 
     private func runPipeline(audioURL: URL) async {
         let startTime = Date()
+        let whisperModel = UserDefaults.standard.string(forKey: "whisperModel") ?? "whisper"
+        let gemmaModel   = UserDefaults.standard.string(forKey: "gemmaModel")   ?? "gemma4:latest"
         do {
             stage = .transcribing
             let hint = profileManager.profile.vocabularyHint.isEmpty ? nil : profileManager.profile.vocabularyHint
-            let transcript = try await transcriptionActor.transcribe(audioURL: audioURL, vocabularyHint: hint)
+            let transcript = try await transcriptionActor.transcribe(audioURL: audioURL, vocabularyHint: hint, model: whisperModel)
             await audioCapture.deleteRecording(at: audioURL)
 
             stage = .enhancing
             let styleContext = profileManager.profile.styleContext(for: currentMode)
-            let enhanced = try await enhancementActor.enhance(transcript: transcript, mode: currentMode, styleContext: styleContext)
+            let enhanced = try await enhancementActor.enhance(transcript: transcript, mode: currentMode, styleContext: styleContext, model: gemmaModel)
 
             try await injectionActor.inject(text: enhanced)
 

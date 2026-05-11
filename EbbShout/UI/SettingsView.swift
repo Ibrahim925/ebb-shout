@@ -4,7 +4,7 @@ struct SettingsView: View {
     let appState: AppState
     @AppStorage("ollamaURL") private var ollamaURL = "http://localhost:11434"
     @AppStorage("whisperModel") private var whisperModel = "whisper"
-    @AppStorage("gemmaModel") private var gemmaModel = "gemma3:4b"
+    @AppStorage("gemmaModel") private var gemmaModel = "gemma4:latest"
     @AppStorage("defaultMode") private var defaultMode = RecordingMode.regular.rawValue
     @AppStorage("launchAtLogin") private var launchAtLogin = false
     @State private var newWord = ""

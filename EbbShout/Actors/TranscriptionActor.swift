@@ -7,8 +7,8 @@ actor TranscriptionActor {
         self.ollamaClient = ollamaClient
     }
 
-    func transcribe(audioURL: URL, vocabularyHint: String?) async throws -> String {
+    func transcribe(audioURL: URL, vocabularyHint: String?, model: String = "whisper") async throws -> String {
         let hint = vocabularyHint.flatMap { $0.isEmpty ? nil : $0 }
-        return try await ollamaClient.transcribe(audioURL: audioURL, hint: hint)
+        return try await ollamaClient.transcribe(audioURL: audioURL, hint: hint, model: model)
     }
 }
