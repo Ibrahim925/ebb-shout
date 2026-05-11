@@ -23,6 +23,7 @@
 		FF7788AABB11CC22DD33EE55 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC44EE66FF7788AABB22DD55 /* SettingsView.swift */; };
 		AA22BB33CC44DD55EE66FF77 /* MetricsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB33CC44DD55EE66FF7788AA /* MetricsView.swift */; };
 		CC55DD66EE77FF8899AABB33 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD66EE77FF8899AABB33CC55 /* OnboardingView.swift */; };
+		EE66FF7788AABB11CC22DD55 /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7799AABB22CC33DD44EE66 /* Typography.swift */; };
 		EE55FF6677AABB11CC22DD44 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6677AABB11CC22DD33EE44 /* AppState.swift */; };
 		87840381A85E508730E3E5B8 /* OllamaClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F91B93084799AF99DBA598 /* OllamaClientTests.swift */; };
 		8965B3C0D5CDAA787BF8EEB4 /* Metrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0081AB063BD95A02ACB983B3 /* Metrics.swift */; };
@@ -73,6 +74,7 @@
 		CC44EE66FF7788AABB22DD55 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		BB33CC44DD55EE66FF7788AA /* MetricsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsView.swift; sourceTree = "<group>"; };
 		DD66EE77FF8899AABB33CC55 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		FF7799AABB22CC33DD44EE66 /* Typography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typography.swift; sourceTree = "<group>"; };
 		FF6677AABB11CC22DD33EE44 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -159,6 +161,7 @@
 				CC44EE66FF7788AABB22DD55 /* SettingsView.swift */,
 				BB33CC44DD55EE66FF7788AA /* MetricsView.swift */,
 				DD66EE77FF8899AABB33CC55 /* OnboardingView.swift */,
+				FF7799AABB22CC33DD44EE66 /* Typography.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 				CC55DD66EE77FF8899AABB33 /* OnboardingView.swift in Sources */,
 				EE55FF6677AABB11CC22DD44 /* AppState.swift in Sources */,
 				FF7788AABB11CC22DD33EE55 /* SettingsView.swift in Sources */,
+				EE66FF7788AABB11CC22DD55 /* Typography.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -30,7 +30,7 @@ struct MetricsView: View {
             StatCard(
                 value: formattedTimeSaved,
                 label: "estimated time saved",
-                color: .purple
+                color: .ebAccent
             )
         }
     }
