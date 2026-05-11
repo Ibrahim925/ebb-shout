@@ -14,5 +14,7 @@
     <true/>
     <key>NSMicrophoneUsageDescription</key>
     <string>Ebb Shout needs microphone access to record your dictation.</string>
+    <key>NSSpeechRecognitionUsageDescription</key>
+    <string>Ebb Shout uses on-device speech recognition to transcribe your dictation.</string>
 </dict>
 </plist>

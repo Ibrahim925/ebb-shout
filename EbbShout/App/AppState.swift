@@ -10,8 +10,8 @@ final class AppState {
 
     let audioCapture = AudioCaptureActor()
     let injectionActor = InjectionActor()
+    let transcriptionActor = TranscriptionActor()
     var ollamaClient: OllamaClient
-    var transcriptionActor: TranscriptionActor
     var enhancementActor: EnhancementActor
     let profileManager: UserProfileManager
     let metricsManager: MetricsManager
@@ -21,7 +21,6 @@ final class AppState {
             baseURL: URL(string: UserDefaults.standard.string(forKey: "ollamaURL") ?? "http://localhost:11434")!
         )
         ollamaClient = client
-        transcriptionActor = TranscriptionActor(ollamaClient: client)
         enhancementActor = EnhancementActor(ollamaClient: client)
         profileManager = UserProfileManager()
         metricsManager = MetricsManager()
@@ -55,12 +54,11 @@ final class AppState {
 
     private func runPipeline(audioURL: URL) async {
         let startTime = Date()
-        let whisperModel = UserDefaults.standard.string(forKey: "whisperModel") ?? "whisper"
-        let gemmaModel   = UserDefaults.standard.string(forKey: "gemmaModel")   ?? "gemma4:latest"
+        let gemmaModel = UserDefaults.standard.string(forKey: "gemmaModel") ?? "gemma4:latest"
         do {
             stage = .transcribing
             let hint = profileManager.profile.vocabularyHint.isEmpty ? nil : profileManager.profile.vocabularyHint
-            let transcript = try await transcriptionActor.transcribe(audioURL: audioURL, vocabularyHint: hint, model: whisperModel)
+            let transcript = try await transcriptionActor.transcribe(audioURL: audioURL, vocabularyHint: hint)
             await audioCapture.deleteRecording(at: audioURL)
 
             stage = .enhancing
