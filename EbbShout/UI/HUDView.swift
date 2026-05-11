@@ -98,6 +98,7 @@ struct ModeChipStyle: ButtonStyle {
     }
 }
 
+@MainActor
 final class HUDWindowController: NSWindowController {
     convenience init(appState: AppState) {
         let panel = NSPanel(

@@ -1,5 +1,6 @@
 import AppKit
 
+@MainActor
 final class MenuBarController {
     private let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
     private var appState: AppState

@@ -2,14 +2,12 @@ import SwiftUI
 
 @main
 struct EbbShoutApp: App {
-    @State private var appState = AppState()
+    @State private var appState: AppState
     private let hotKeyManager = HotKeyManager()
     @State private var menuBarController: MenuBarController?
     @State private var hudController: HUDWindowController?
 
     var body: some Scene {
-        MenuBarExtra { } label: { }   // placeholder — real bar managed by MenuBarController
-
         Settings {
             Text("Settings coming soon")
         }
@@ -18,9 +16,12 @@ struct EbbShoutApp: App {
     init() {
         let state = AppState()
         _appState = State(initialValue: state)
-        setup(state)
+        MainActor.assumeIsolated {
+            setup(state)
+        }
     }
 
+    @MainActor
     private func setup(_ state: AppState) {
         let menu = MenuBarController(appState: state)
         menuBarController = menu
@@ -44,16 +45,19 @@ struct EbbShoutApp: App {
         }
         hotKeyManager.start()
 
-        // Observe stage changes to update menu icon and HUD visibility
-        Task { @MainActor in
-            var lastStage: PipelineStage = .idle
-            while true {
-                if state.stage != lastStage {
-                    lastStage = state.stage
-                    menu.updateIcon(for: state.stage)
-                    if state.stage == .idle { hud.hide() } else { hud.show() }
-                }
-                try? await Task.sleep(for: .milliseconds(100))
+        observeStage(state: state, menu: menu, hud: hud)
+    }
+
+    @MainActor
+    private func observeStage(state: AppState, menu: MenuBarController, hud: HUDWindowController) {
+        withObservationTracking {
+            _ = state.stage
+        } onChange: {
+            Task { @MainActor in
+                menu.updateIcon(for: state.stage)
+                if state.stage == .idle { hud.hide() } else { hud.show() }
+                // Re-arm the observation for next change
+                observeStage(state: state, menu: menu, hud: hud)
             }
         }
     }
