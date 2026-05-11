@@ -18,6 +18,9 @@
 		75212075696388560E31DCEA /* OllamaClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75A7CF4F86F1E45315964FF /* OllamaClient.swift */; };
 		80A47E315AEC1BCE129251DC /* EnhancementActorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDE90A8002EC2BBA12A7799 /* EnhancementActorTests.swift */; };
 		822E4ED327A843977910128D /* EbbShoutApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB979648DB5093E99C6A7CD /* EbbShoutApp.swift */; };
+		CC33DD44EE55FF6677AABB11 /* MenuBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA11BB22CC33DD44EE55FF66 /* MenuBarController.swift */; };
+		DD44EE55FF6677AABB11CC22 /* HUDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB22CC33DD44EE55FF6677AA /* HUDView.swift */; };
+		EE55FF6677AABB11CC22DD44 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6677AABB11CC22DD33EE44 /* AppState.swift */; };
 		87840381A85E508730E3E5B8 /* OllamaClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F91B93084799AF99DBA598 /* OllamaClientTests.swift */; };
 		8965B3C0D5CDAA787BF8EEB4 /* Metrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0081AB063BD95A02ACB983B3 /* Metrics.swift */; };
 		A05C25E4D4DAB285BE288CD0 /* RecordingMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD52D2280720885371F2D657 /* RecordingMode.swift */; };
@@ -62,6 +65,9 @@
 		E1692FE10312A67D3274DD33 /* PipelineStage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipelineStage.swift; sourceTree = "<group>"; };
 		EFDE90A8002EC2BBA12A7799 /* EnhancementActorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnhancementActorTests.swift; sourceTree = "<group>"; };
 		FE0F90FE69EB23A2D7889F60 /* HotKeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotKeyManager.swift; sourceTree = "<group>"; };
+		AA11BB22CC33DD44EE55FF66 /* MenuBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarController.swift; sourceTree = "<group>"; };
+		BB22CC33DD44EE55FF6677AA /* HUDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDView.swift; sourceTree = "<group>"; };
+		FF6677AABB11CC22DD33EE44 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -85,6 +91,7 @@
 				1C70E261192CD444F23EBF7B /* App */,
 				03F2E4F3803829CFDC50A9A5 /* Models */,
 				D99DB4920A9C63285DF07343 /* Services */,
+				EE55FF6677AABB11CC22DD33 /* UI */,
 			);
 			path = EbbShout;
 			sourceTree = "<group>";
@@ -101,6 +108,7 @@
 		1C70E261192CD444F23EBF7B /* App */ = {
 			isa = PBXGroup;
 			children = (
+				FF6677AABB11CC22DD33EE44 /* AppState.swift */,
 				7AB979648DB5093E99C6A7CD /* EbbShoutApp.swift */,
 			);
 			path = App;
@@ -135,6 +143,15 @@
 				A03A6B51B9A1B6A4BB7DADF5 /* UserProfileManager.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		EE55FF6677AABB11CC22DD33 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				AA11BB22CC33DD44EE55FF66 /* MenuBarController.swift */,
+				BB22CC33DD44EE55FF6677AA /* HUDView.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		F6BBEA439A2278BCA5942B03 /* EbbShoutTests */ = {
@@ -256,6 +273,9 @@
 				E37EEC3D338F726E67945AFB /* TranscriptionActor.swift in Sources */,
 				43921044F94B83263BC19598 /* UserProfile.swift in Sources */,
 				70E67408A991496C694E4570 /* UserProfileManager.swift in Sources */,
+				CC33DD44EE55FF6677AABB11 /* MenuBarController.swift in Sources */,
+				DD44EE55FF6677AABB11CC22 /* HUDView.swift in Sources */,
+				EE55FF6677AABB11CC22DD44 /* AppState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
