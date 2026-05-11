@@ -1,0 +1,43 @@
+name: EbbShout
+options:
+  bundleIdPrefix: com.ibrahimkhawar
+  deploymentTarget:
+    macOS: "14.0"
+  xcodeVersion: "15.0"
+  createIntermediateGroups: true
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+    CODE_SIGN_STYLE: Manual
+    CODE_SIGNING_REQUIRED: NO
+    CODE_SIGNING_ALLOWED: NO
+targets:
+  EbbShout:
+    type: application
+    platform: macOS
+    deploymentTarget: "14.0"
+    sources:
+      - path: EbbShout
+        excludes:
+          - "**/*.md"
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.ibrahimkhawar.ebb-shout
+        INFOPLIST_FILE: EbbShout/Info.plist
+        LD_RUNPATH_SEARCH_PATHS: "@executable_path/../Frameworks"
+        ENABLE_HARDENED_RUNTIME: YES
+    entitlements:
+      path: EbbShout/EbbShout.entitlements
+      properties:
+        com.apple.security.app-sandbox: false
+  EbbShoutTests:
+    type: bundle.unit-test
+    platform: macOS
+    deploymentTarget: "14.0"
+    sources:
+      - path: EbbShoutTests
+    dependencies:
+      - target: EbbShout
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.ibrahimkhawar.ebb-shout-tests

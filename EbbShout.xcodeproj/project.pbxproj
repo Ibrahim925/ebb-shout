@@ -1,0 +1,403 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0BB70EBEC45B5E0950D8FA89 /* EbbShoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BA91BDC109C95828FA3EE3 /* EbbShoutTests.swift */; };
+		822E4ED327A843977910128D /* EbbShoutApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB979648DB5093E99C6A7CD /* EbbShoutApp.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		40CCD5B503F1B9C7A6D34AF4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 19EEB0F575B4F1DDEB8494F6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1B97F96D3C3EFA83B932A72C;
+			remoteInfo = EbbShout;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		14BA91BDC109C95828FA3EE3 /* EbbShoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EbbShoutTests.swift; sourceTree = "<group>"; };
+		35E67255B493F5E5F6FDB1A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		42FE3B9AB2D0BE4849EBB0FE /* EbbShout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EbbShout.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		55B00675E356E4126F806C39 /* EbbShout.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EbbShout.entitlements; sourceTree = "<group>"; };
+		7AB979648DB5093E99C6A7CD /* EbbShoutApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EbbShoutApp.swift; sourceTree = "<group>"; };
+		BFB61B2A2F322910FA810150 /* EbbShoutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EbbShoutTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		06A9C0083959F6E5BE8D6372 /* EbbShout */ = {
+			isa = PBXGroup;
+			children = (
+				55B00675E356E4126F806C39 /* EbbShout.entitlements */,
+				35E67255B493F5E5F6FDB1A0 /* Info.plist */,
+				1C70E261192CD444F23EBF7B /* App */,
+			);
+			path = EbbShout;
+			sourceTree = "<group>";
+		};
+		107D8DFD40EA2700107A51D9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				42FE3B9AB2D0BE4849EBB0FE /* EbbShout.app */,
+				BFB61B2A2F322910FA810150 /* EbbShoutTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1C70E261192CD444F23EBF7B /* App */ = {
+			isa = PBXGroup;
+			children = (
+				7AB979648DB5093E99C6A7CD /* EbbShoutApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		A4286BF0804DBBF57F7EAFD3 = {
+			isa = PBXGroup;
+			children = (
+				06A9C0083959F6E5BE8D6372 /* EbbShout */,
+				F6BBEA439A2278BCA5942B03 /* EbbShoutTests */,
+				107D8DFD40EA2700107A51D9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F6BBEA439A2278BCA5942B03 /* EbbShoutTests */ = {
+			isa = PBXGroup;
+			children = (
+				14BA91BDC109C95828FA3EE3 /* EbbShoutTests.swift */,
+			);
+			path = EbbShoutTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1B97F96D3C3EFA83B932A72C /* EbbShout */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 766A10D2E72D3987F6881119 /* Build configuration list for PBXNativeTarget "EbbShout" */;
+			buildPhases = (
+				DD187684F29FD9E988370BFC /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EbbShout;
+			packageProductDependencies = (
+			);
+			productName = EbbShout;
+			productReference = 42FE3B9AB2D0BE4849EBB0FE /* EbbShout.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2B36095FBE79ABFF133A821A /* EbbShoutTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 41F321980CE5D8ADAB89BBC8 /* Build configuration list for PBXNativeTarget "EbbShoutTests" */;
+			buildPhases = (
+				D350A0C1E13F25FB77E008D2 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				44C6E6F4A287B42E4164EDA4 /* PBXTargetDependency */,
+			);
+			name = EbbShoutTests;
+			packageProductDependencies = (
+			);
+			productName = EbbShoutTests;
+			productReference = BFB61B2A2F322910FA810150 /* EbbShoutTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		19EEB0F575B4F1DDEB8494F6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					1B97F96D3C3EFA83B932A72C = {
+						ProvisioningStyle = Manual;
+					};
+					2B36095FBE79ABFF133A821A = {
+						ProvisioningStyle = Manual;
+					};
+				};
+			};
+			buildConfigurationList = 500ED26FFA5526FCE87CCBF1 /* Build configuration list for PBXProject "EbbShout" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = A4286BF0804DBBF57F7EAFD3;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 107D8DFD40EA2700107A51D9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1B97F96D3C3EFA83B932A72C /* EbbShout */,
+				2B36095FBE79ABFF133A821A /* EbbShoutTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D350A0C1E13F25FB77E008D2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0BB70EBEC45B5E0950D8FA89 /* EbbShoutTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD187684F29FD9E988370BFC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				822E4ED327A843977910128D /* EbbShoutApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		44C6E6F4A287B42E4164EDA4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1B97F96D3C3EFA83B932A72C /* EbbShout */;
+			targetProxy = 40CCD5B503F1B9C7A6D34AF4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		23CABE97C3800F1B2CB5EC52 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = EbbShout/EbbShout.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = EbbShout/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ibrahimkhawar.ebb-shout";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		327E30E60829FBB316A89315 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = EbbShout/EbbShout.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = EbbShout/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ibrahimkhawar.ebb-shout";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		680DCCF6699AB14A169F7832 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ibrahimkhawar.ebb-shout-tests";
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EbbShout.app/Contents/MacOS/EbbShout";
+			};
+			name = Debug;
+		};
+		C463B04029B3051B74D49EB4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				CODE_SIGN_STYLE = Manual;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Debug;
+		};
+		D4CFCED6428E4B6E42B3E9C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ibrahimkhawar.ebb-shout-tests";
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EbbShout.app/Contents/MacOS/EbbShout";
+			};
+			name = Release;
+		};
+		EC1E533631FC1A7A30F4375B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				CODE_SIGN_STYLE = Manual;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		41F321980CE5D8ADAB89BBC8 /* Build configuration list for PBXNativeTarget "EbbShoutTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				680DCCF6699AB14A169F7832 /* Debug */,
+				D4CFCED6428E4B6E42B3E9C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		500ED26FFA5526FCE87CCBF1 /* Build configuration list for PBXProject "EbbShout" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C463B04029B3051B74D49EB4 /* Debug */,
+				EC1E533631FC1A7A30F4375B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		766A10D2E72D3987F6881119 /* Build configuration list for PBXNativeTarget "EbbShout" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				23CABE97C3800F1B2CB5EC52 /* Debug */,
+				327E30E60829FBB316A89315 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 19EEB0F575B4F1DDEB8494F6 /* Project object */;
+}
