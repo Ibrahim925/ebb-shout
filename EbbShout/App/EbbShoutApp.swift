@@ -6,11 +6,20 @@ struct EbbShoutApp: App {
     private let hotKeyManager = HotKeyManager()
     @State private var menuBarController: MenuBarController?
     @State private var hudController: HUDWindowController?
+    @AppStorage("onboardingComplete") private var onboardingComplete = false
 
     var body: some Scene {
         Settings {
             SettingsView(appState: appState)
         }
+
+        Window("Welcome", id: "onboarding") {
+            if !onboardingComplete {
+                OnboardingView(appState: appState) { onboardingComplete = true }
+            }
+        }
+        .defaultSize(width: 480, height: 500)
+        .windowResizability(.contentSize)
     }
 
     init() {
@@ -44,6 +53,22 @@ struct EbbShoutApp: App {
             }
         }
         hotKeyManager.start()
+
+        if !UserDefaults.standard.bool(forKey: "onboardingComplete") {
+            let window = NSWindow(
+                contentRect: NSRect(x: 0, y: 0, width: 480, height: 500),
+                styleMask: [.titled, .closable],
+                backing: .buffered,
+                defer: false
+            )
+            window.title = "Welcome to Ebb Shout"
+            window.contentView = NSHostingView(rootView: OnboardingView(appState: state) {
+                UserDefaults.standard.set(true, forKey: "onboardingComplete")
+                window.close()
+            })
+            window.center()
+            window.makeKeyAndOrderFront(nil)
+        }
 
         observeStage(state: state, menu: menu, hud: hud)
     }
