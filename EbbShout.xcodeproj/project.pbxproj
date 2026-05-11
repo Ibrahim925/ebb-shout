@@ -8,7 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		0BB70EBEC45B5E0950D8FA89 /* EbbShoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BA91BDC109C95828FA3EE3 /* EbbShoutTests.swift */; };
+		375612FC2A921BB922A35E15 /* PipelineStage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1692FE10312A67D3274DD33 /* PipelineStage.swift */; };
+		43921044F94B83263BC19598 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5627165A735889F5BA6A4250 /* UserProfile.swift */; };
 		822E4ED327A843977910128D /* EbbShoutApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB979648DB5093E99C6A7CD /* EbbShoutApp.swift */; };
+		8965B3C0D5CDAA787BF8EEB4 /* Metrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0081AB063BD95A02ACB983B3 /* Metrics.swift */; };
+		A05C25E4D4DAB285BE288CD0 /* RecordingMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD52D2280720885371F2D657 /* RecordingMode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -22,21 +26,37 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0081AB063BD95A02ACB983B3 /* Metrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metrics.swift; sourceTree = "<group>"; };
 		14BA91BDC109C95828FA3EE3 /* EbbShoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EbbShoutTests.swift; sourceTree = "<group>"; };
 		35E67255B493F5E5F6FDB1A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		42FE3B9AB2D0BE4849EBB0FE /* EbbShout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EbbShout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55B00675E356E4126F806C39 /* EbbShout.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EbbShout.entitlements; sourceTree = "<group>"; };
+		5627165A735889F5BA6A4250 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		7AB979648DB5093E99C6A7CD /* EbbShoutApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EbbShoutApp.swift; sourceTree = "<group>"; };
 		BFB61B2A2F322910FA810150 /* EbbShoutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EbbShoutTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD52D2280720885371F2D657 /* RecordingMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingMode.swift; sourceTree = "<group>"; };
+		E1692FE10312A67D3274DD33 /* PipelineStage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipelineStage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
+		03F2E4F3803829CFDC50A9A5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0081AB063BD95A02ACB983B3 /* Metrics.swift */,
+				E1692FE10312A67D3274DD33 /* PipelineStage.swift */,
+				DD52D2280720885371F2D657 /* RecordingMode.swift */,
+				5627165A735889F5BA6A4250 /* UserProfile.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		06A9C0083959F6E5BE8D6372 /* EbbShout */ = {
 			isa = PBXGroup;
 			children = (
 				55B00675E356E4126F806C39 /* EbbShout.entitlements */,
 				35E67255B493F5E5F6FDB1A0 /* Info.plist */,
 				1C70E261192CD444F23EBF7B /* App */,
+				03F2E4F3803829CFDC50A9A5 /* Models */,
 			);
 			path = EbbShout;
 			sourceTree = "<group>";
@@ -164,6 +184,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				822E4ED327A843977910128D /* EbbShoutApp.swift in Sources */,
+				8965B3C0D5CDAA787BF8EEB4 /* Metrics.swift in Sources */,
+				375612FC2A921BB922A35E15 /* PipelineStage.swift in Sources */,
+				A05C25E4D4DAB285BE288CD0 /* RecordingMode.swift in Sources */,
+				43921044F94B83263BC19598 /* UserProfile.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
