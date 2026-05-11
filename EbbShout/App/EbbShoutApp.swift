@@ -9,7 +9,7 @@ struct EbbShoutApp: App {
 
     var body: some Scene {
         Settings {
-            Text("Settings coming soon")
+            SettingsView(appState: appState)
         }
     }
 

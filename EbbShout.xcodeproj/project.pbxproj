@@ -20,6 +20,7 @@
 		822E4ED327A843977910128D /* EbbShoutApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB979648DB5093E99C6A7CD /* EbbShoutApp.swift */; };
 		CC33DD44EE55FF6677AABB11 /* MenuBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA11BB22CC33DD44EE55FF66 /* MenuBarController.swift */; };
 		DD44EE55FF6677AABB11CC22 /* HUDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB22CC33DD44EE55FF6677AA /* HUDView.swift */; };
+		FF7788AABB11CC22DD33EE55 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC44EE66FF7788AABB22DD55 /* SettingsView.swift */; };
 		EE55FF6677AABB11CC22DD44 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6677AABB11CC22DD33EE44 /* AppState.swift */; };
 		87840381A85E508730E3E5B8 /* OllamaClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F91B93084799AF99DBA598 /* OllamaClientTests.swift */; };
 		8965B3C0D5CDAA787BF8EEB4 /* Metrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0081AB063BD95A02ACB983B3 /* Metrics.swift */; };
@@ -67,6 +68,7 @@
 		FE0F90FE69EB23A2D7889F60 /* HotKeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotKeyManager.swift; sourceTree = "<group>"; };
 		AA11BB22CC33DD44EE55FF66 /* MenuBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarController.swift; sourceTree = "<group>"; };
 		BB22CC33DD44EE55FF6677AA /* HUDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDView.swift; sourceTree = "<group>"; };
+		CC44EE66FF7788AABB22DD55 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		FF6677AABB11CC22DD33EE44 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -150,6 +152,7 @@
 			children = (
 				AA11BB22CC33DD44EE55FF66 /* MenuBarController.swift */,
 				BB22CC33DD44EE55FF6677AA /* HUDView.swift */,
+				CC44EE66FF7788AABB22DD55 /* SettingsView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				CC33DD44EE55FF6677AABB11 /* MenuBarController.swift in Sources */,
 				DD44EE55FF6677AABB11CC22 /* HUDView.swift in Sources */,
 				EE55FF6677AABB11CC22DD44 /* AppState.swift in Sources */,
+				FF7788AABB11CC22DD33EE55 /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
