@@ -5,11 +5,15 @@ enum OllamaError: Error {
     case decodingError
 }
 
+private extension URL {
+    static let ollamaDefault = URL(string: "http://localhost:11434")! // safe: known-valid literal
+}
+
 final class OllamaClient: Sendable {
     let baseURL: URL
     private let session: URLSession
 
-    init(baseURL: URL = URL(string: "http://localhost:11434")!, session: URLSession = .shared) {
+    init(baseURL: URL = .ollamaDefault, session: URLSession = .shared) {
         self.baseURL = baseURL
         self.session = session
     }
@@ -22,19 +26,24 @@ final class OllamaClient: Sendable {
         request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
 
         var body = Data()
-        let audioData = try Data(contentsOf: audioURL)
-        body.append("--\(boundary)\r\n".data(using: .utf8)!)
-        body.append("Content-Disposition: form-data; name=\"file\"; filename=\"audio.wav\"\r\n".data(using: .utf8)!)
-        body.append("Content-Type: audio/wav\r\n\r\n".data(using: .utf8)!)
-        body.append(audioData)
-        body.append("\r\n".data(using: .utf8)!)
-        if let hint, !hint.isEmpty {
-            body.append("--\(boundary)\r\n".data(using: .utf8)!)
-            body.append("Content-Disposition: form-data; name=\"prompt\"\r\n\r\n".data(using: .utf8)!)
-            body.append(hint.data(using: .utf8)!)
-            body.append("\r\n".data(using: .utf8)!)
+        let audioData: Data
+        do {
+            audioData = try Data(contentsOf: audioURL)
+        } catch {
+            throw OllamaError.decodingError
         }
-        body.append("--\(boundary)--\r\n".data(using: .utf8)!)
+        body.appendUTF8("--\(boundary)\r\n")
+        body.appendUTF8("Content-Disposition: form-data; name=\"file\"; filename=\"audio.wav\"\r\n")
+        body.appendUTF8("Content-Type: audio/wav\r\n\r\n")
+        body.append(audioData)
+        body.appendUTF8("\r\n")
+        if let hint, !hint.isEmpty {
+            body.appendUTF8("--\(boundary)\r\n")
+            body.appendUTF8("Content-Disposition: form-data; name=\"prompt\"\r\n\r\n")
+            body.appendUTF8(hint)
+            body.appendUTF8("\r\n")
+        }
+        body.appendUTF8("--\(boundary)--\r\n")
         request.httpBody = body
 
         let (data, response) = try await session.data(for: request)
@@ -79,5 +88,13 @@ final class OllamaClient: Sendable {
         var request = URLRequest(url: baseURL.appendingPathComponent("api/tags"))
         request.timeoutInterval = 3
         return (try? await session.data(for: request)) != nil
+    }
+}
+
+private extension Data {
+    mutating func appendUTF8(_ string: String) {
+        if let data = string.data(using: .utf8) {
+            append(data)
+        }
     }
 }
