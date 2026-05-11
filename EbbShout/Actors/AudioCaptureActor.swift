@@ -3,6 +3,7 @@ import AVFoundation
 enum AudioCaptureError: Error {
     case engineStartFailed
     case noInputAvailable
+    case microphonePermissionDenied
 }
 
 actor AudioCaptureActor {
@@ -10,7 +11,13 @@ actor AudioCaptureActor {
     private var outputFile: AVAudioFile?
     private var tempURL: URL?
 
-    func startRecording() throws -> URL {
+    func startRecording() async throws -> URL {
+        // Check microphone permission first — AVAudioEngine gives cryptic -10877 if denied
+        let permitted = await withCheckedContinuation { continuation in
+            AVCaptureDevice.requestAccess(for: .audio) { continuation.resume(returning: $0) }
+        }
+        guard permitted else { throw AudioCaptureError.microphonePermissionDenied }
+
         let input = engine.inputNode
         guard input.inputFormat(forBus: 0).channelCount > 0 else {
             throw AudioCaptureError.noInputAvailable

@@ -19,8 +19,8 @@ final class OllamaClient: Sendable {
     }
 
     /// Sends audio file to Ollama Whisper endpoint and returns raw transcript.
-    func transcribe(audioURL: URL, hint: String?) async throws -> String {
-        var request = URLRequest(url: baseURL.appendingPathComponent("api/audio/transcriptions"))
+    func transcribe(audioURL: URL, hint: String?, model: String = "whisper") async throws -> String {
+        var request = URLRequest(url: baseURL.appendingPathComponent("v1/audio/transcriptions"))
         request.httpMethod = "POST"
         let boundary = UUID().uuidString
         request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
@@ -32,10 +32,16 @@ final class OllamaClient: Sendable {
         } catch {
             throw OllamaError.decodingError
         }
+        // file field
         body.appendUTF8("--\(boundary)\r\n")
         body.appendUTF8("Content-Disposition: form-data; name=\"file\"; filename=\"audio.wav\"\r\n")
         body.appendUTF8("Content-Type: audio/wav\r\n\r\n")
         body.append(audioData)
+        body.appendUTF8("\r\n")
+        // model field (required by Ollama)
+        body.appendUTF8("--\(boundary)\r\n")
+        body.appendUTF8("Content-Disposition: form-data; name=\"model\"\r\n\r\n")
+        body.appendUTF8(model)
         body.appendUTF8("\r\n")
         if let hint, !hint.isEmpty {
             body.appendUTF8("--\(boundary)\r\n")
