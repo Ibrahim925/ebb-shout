@@ -24,7 +24,7 @@ struct OnboardingView: View {
 
             VStack(alignment: .leading, spacing: 16) {
                 stepRow(.ollamaCheck, title: "Ollama is running", subtitle: "Checking localhost:11434")
-                stepRow(.pullModels, title: "Models available", subtitle: "whisper + gemma3:4b")
+                stepRow(.pullModels, title: "Local model available", subtitle: "gemma4:latest via Ollama")
                 stepRow(.microphone, title: "Microphone access", subtitle: "Required for recording")
                 stepRow(.accessibility, title: "Accessibility access", subtitle: "Required for text injection")
             }
@@ -68,7 +68,7 @@ struct OnboardingView: View {
     private var buttonLabel: String {
         switch currentStep {
         case .ollamaCheck:   return "Check Ollama"
-        case .pullModels:    return "Pull Models"
+        case .pullModels:    return "Confirm Model"
         case .microphone:    return "Grant Microphone"
         case .accessibility: return "Open System Settings"
         case .done:          return "Get Started"

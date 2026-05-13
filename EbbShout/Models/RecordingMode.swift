@@ -12,6 +12,8 @@ enum RecordingMode: String, CaseIterable, Codable, Identifiable {
         case .formal: "Formal"
         }
     }
+    
+    
 
     var systemPrompt: String {
         switch self {

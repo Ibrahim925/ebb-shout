@@ -7,7 +7,7 @@
 
 ## Context
 
-Ebb Shout is a macOS menubar app that lets users dictate text into any focused application using their voice. It is a fully local, open-source alternative to Wispr Flow. All processing — speech recognition, text enhancement, and user profiling — happens on-device via a locally-running Ollama instance. No data ever leaves the machine.
+Ebb Shout is a macOS menubar app that lets users dictate text into any focused application using their voice. It is a fully local, open-source alternative to Wispr Flow. Speech recognition uses [ggml-org/whisper.cpp](https://github.com/ggml-org/whisper.cpp), while text enhancement and user profiling remain local via a locally-running Ollama instance and files on disk.
 
 The name "Ebb Shout" is a deliberate inversion of "Wispr Flow."
 
@@ -19,8 +19,8 @@ The name "Ebb Shout" is a deliberate inversion of "Wispr Flow."
 |---|---|
 | Platform | macOS only |
 | Language | Swift + SwiftUI |
-| Speech-to-text | Ollama Whisper |
-| Text enhancement | Ollama Gemma (default: `gemma3:4b`) |
+| Speech-to-text | whisper.cpp `whisper-cli` |
+| Text enhancement | Ollama Gemma (default: `gemma4:latest`) |
 | Inference runtime | Ollama (`http://localhost:11434`) |
 | Persistence | UserDefaults (settings) + JSON files in `~/Library/Application Support/EbbShout/` |
 
@@ -37,7 +37,7 @@ HotKeyManager
 AudioCaptureActor        ← AVAudioEngine → temp WAV file
     │  (audio file path)
     ▼
-TranscriptionActor       ← OllamaClient (Whisper) → raw transcript
+TranscriptionActor       ← whisper.cpp `whisper-cli` → raw transcript
     │  (raw string)       ← injects UserProfileManager.vocabularyHint as initial_prompt
     ▼
 EnhancementActor         ← OllamaClient (Gemma) → polished text
@@ -49,7 +49,7 @@ InjectionActor           ← AXUIElement → focused app
 UserProfileManager.recordRun(words, mode)
 ```
 
-`OllamaClient` is a shared URLSession-based HTTP client used by both `TranscriptionActor` and `EnhancementActor`.
+`OllamaClient` is a URLSession-based HTTP client used for local text enhancement. `TranscriptionActor` invokes a local `whisper-cli` executable configured in Settings.
 
 ---
 
@@ -62,7 +62,7 @@ EbbShout/
     AppState.swift             # @Observable shared pipeline state
   Actors/
     AudioCaptureActor.swift    # AVAudioEngine, buffers to temp WAV, deletes on done
-    TranscriptionActor.swift   # Calls OllamaClient with audio + vocab hint
+    TranscriptionActor.swift   # Calls whisper.cpp whisper-cli with audio + vocab hint
     EnhancementActor.swift     # Calls OllamaClient with transcript + mode + style context
     InjectionActor.swift       # AXUIElement text injection into focused app
   Services/
@@ -189,8 +189,8 @@ SwiftUI `Settings` scene (appears at `Ebb Shout → Settings…`). Sections:
 
 First-launch window walks through:
 1. Check Ollama is running at configured URL
-2. Pull Whisper model if not present (`ollama pull whisper`)
-3. Pull Gemma model if not present (`ollama pull gemma3:4b`)
+2. Confirm `whisper-cli` and a GGML model file are configured
+3. Pull Gemma model if not present (`ollama pull gemma4:latest`)
 4. Request Microphone permission
 5. Guide user to System Settings → Privacy → Accessibility to grant access
 
@@ -198,8 +198,8 @@ First-launch window walks through:
 
 ## Privacy
 
-- Audio is captured to a temp file in `FileManager.default.temporaryDirectory`, deleted immediately after `TranscriptionActor` finishes.
-- No telemetry, no analytics, no network requests except to `localhost:11434`.
+- Audio is captured to a temp file in `FileManager.default.temporaryDirectory`, transcribed locally, then deleted immediately after `TranscriptionActor` finishes.
+- No telemetry, no analytics, and no external API calls. Text enhancement requests go to `localhost:11434` by default.
 - All persistent data (`profile.json`, `metrics.json`) is local and user-deletable from Settings.
 
 ---
@@ -226,7 +226,7 @@ First-launch window walks through:
 **README must include:**
 - What Ebb Shout is and why it exists
 - Prerequisites: macOS 14+, Xcode 15+, Ollama installed
-- One-command setup: `ollama pull whisper && ollama pull gemma3:4b`
+- Setup: `ollama pull gemma4:latest`, build whisper.cpp, and download a GGML model with `models/download-ggml-model.sh`
 - Build & run instructions (Xcode and `xcodebuild`)
 - Link to the design spec
 

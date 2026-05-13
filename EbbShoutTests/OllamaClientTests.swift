@@ -11,19 +11,6 @@ final class OllamaClientTests: XCTestCase {
         client = OllamaClient(baseURL: URL(string: "http://localhost:11434")!, session: session)
     }
 
-    func testTranscribe_returnsText() async throws {
-        MockURLProtocol.handler = { _ in
-            let body = #"{"text":"hello world"}"#.data(using: .utf8)!
-            let response = HTTPURLResponse(url: URL(string: "http://localhost:11434")!,
-                                           statusCode: 200, httpVersion: nil, headerFields: nil)!
-            return (response, body)
-        }
-        let audioURL = FileManager.default.temporaryDirectory.appendingPathComponent("test.wav")
-        try Data().write(to: audioURL)
-        let result = try await client.transcribe(audioURL: audioURL, hint: "SwiftUI")
-        XCTAssertEqual(result, "hello world")
-    }
-
     func testEnhance_returnsResponse() async throws {
         MockURLProtocol.handler = { _ in
             let body = #"{"response":"Cleaned text."}"#.data(using: .utf8)!
@@ -33,24 +20,6 @@ final class OllamaClientTests: XCTestCase {
         }
         let result = try await client.enhance(transcript: "uh yeah so", systemPrompt: "clean it")
         XCTAssertEqual(result, "Cleaned text.")
-    }
-
-    func testTranscribe_throwsOnHTTPError() async throws {
-        MockURLProtocol.handler = { _ in
-            let response = HTTPURLResponse(url: URL(string: "http://localhost:11434")!,
-                                           statusCode: 500, httpVersion: nil, headerFields: nil)!
-            return (response, Data())
-        }
-        let audioURL = FileManager.default.temporaryDirectory.appendingPathComponent("err.wav")
-        try Data().write(to: audioURL)
-        do {
-            _ = try await client.transcribe(audioURL: audioURL, hint: nil)
-            XCTFail("Expected throw")
-        } catch OllamaError.httpError(let code) {
-            XCTAssertEqual(code, 500)
-        } catch {
-            XCTFail("Unexpected error: \(error)")
-        }
     }
 
     func testEnhance_stripsWhitespace() async throws {

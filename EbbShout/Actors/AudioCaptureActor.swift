@@ -1,58 +1,49 @@
 import AVFoundation
 
 enum AudioCaptureError: Error {
-    case engineStartFailed
-    case noInputAvailable
     case microphonePermissionDenied
+    case recordingFailed
 }
 
 actor AudioCaptureActor {
-    private let engine = AVAudioEngine()
-    private var outputFile: AVAudioFile?
+    private var recorder: AVAudioRecorder?
     private var tempURL: URL?
 
     func startRecording() async throws -> URL {
-        // Check microphone permission first — AVAudioEngine gives cryptic -10877 if denied
-        let permitted = await withCheckedContinuation { continuation in
-            AVCaptureDevice.requestAccess(for: .audio) { continuation.resume(returning: $0) }
+        // Ensure microphone permission before touching audio hardware
+        let permitted = await withCheckedContinuation { (c: CheckedContinuation<Bool, Never>) in
+            AVCaptureDevice.requestAccess(for: .audio) { c.resume(returning: $0) }
         }
         guard permitted else { throw AudioCaptureError.microphonePermissionDenied }
 
-        let input = engine.inputNode
-        guard input.inputFormat(forBus: 0).channelCount > 0 else {
-            throw AudioCaptureError.noInputAvailable
-        }
-        let format = input.outputFormat(forBus: 0)
         let url = FileManager.default.temporaryDirectory
             .appendingPathComponent(UUID().uuidString + ".wav")
         tempURL = url
-        outputFile = try AVAudioFile(forWriting: url, settings: format.settings)
 
-        input.installTap(onBus: 0, bufferSize: 4096, format: format) { [weak self] buffer, _ in
-            Task { await self?.write(buffer: buffer) }
-        }
+        // 16 kHz mono PCM — ideal for SFSpeechRecognizer
+        let settings: [String: Any] = [
+            AVFormatIDKey:            Int(kAudioFormatLinearPCM),
+            AVSampleRateKey:          16000.0,
+            AVNumberOfChannelsKey:    1,
+            AVLinearPCMBitDepthKey:   16,
+            AVLinearPCMIsFloatKey:    false,
+            AVLinearPCMIsBigEndianKey: false
+        ]
 
-        do {
-            try engine.start()
-        } catch {
-            throw AudioCaptureError.engineStartFailed
-        }
+        let rec = try AVAudioRecorder(url: url, settings: settings)
+        guard rec.record() else { throw AudioCaptureError.recordingFailed }
+        recorder = rec
         return url
     }
 
     func stopRecording() -> URL? {
-        engine.inputNode.removeTap(onBus: 0)
-        engine.stop()
-        outputFile = nil
+        recorder?.stop()
+        recorder = nil
         return tempURL
     }
 
     func deleteRecording(at url: URL) {
         try? FileManager.default.removeItem(at: url)
         if tempURL == url { tempURL = nil }
-    }
-
-    private func write(buffer: AVAudioPCMBuffer) {
-        try? outputFile?.write(from: buffer)
     }
 }

@@ -12,10 +12,14 @@ struct HUDContent: View {
                 Text(stageLabel)
                     .font(.system(.callout, design: .serif).weight(.medium))
                     .foregroundStyle(.primary)
+                    .lineLimit(2)
+                    .multilineTextAlignment(.leading)
+                    .frame(minWidth: 96, maxWidth: 300, alignment: .leading)
                 if !isHovered {
                     Text(appState.currentMode.displayName)
                         .font(.system(.caption, design: .serif))
                         .foregroundStyle(.tertiary)
+                        .fixedSize()
                 }
             }
 
@@ -32,6 +36,7 @@ struct HUDContent: View {
         .padding(.horizontal, 18)
         .padding(.vertical, 10)
         .background(.ultraThinMaterial, in: Capsule())
+        .frame(minWidth: 260, maxWidth: 420)
         .onHover { isHovered = $0 }
         .animation(.spring(duration: 0.2), value: isHovered)
     }
@@ -58,7 +63,7 @@ struct HUDContent: View {
         case .transcribing: return "Transcribing"
         case .enhancing:    return "Enhancing"
         case .done:         return "Done"
-        case .error:        return "Error"
+        case .error(let message): return message
         }
     }
 }
@@ -113,11 +118,11 @@ final class HUDWindowController: NSWindowController {
         panel.isOpaque = false
         panel.hasShadow = true
         panel.contentView = NSHostingView(rootView: HUDContent(appState: appState))
-        panel.contentView?.setFrameSize(NSSize(width: 260, height: 52))
+        panel.contentView?.setFrameSize(NSSize(width: 420, height: 64))
 
         // Position bottom-centre
         if let screen = NSScreen.main {
-            let x = screen.visibleFrame.midX - 130
+            let x = screen.visibleFrame.midX - 210
             let y = screen.visibleFrame.minY + 24
             panel.setFrameOrigin(NSPoint(x: x, y: y))
         }
